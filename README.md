@@ -1,2 +1,2 @@
 # python
-All the python coding
+All the python code
