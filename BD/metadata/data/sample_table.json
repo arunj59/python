@@ -1,0 +1,57 @@
+{
+  "tableName": "XYZ",
+  "version": "1",
+  "archiveTableName": "XYZ_parquet",
+  "tableSchema": {
+    "columns": [
+      {
+        "name": "GID",
+        "order":1,
+        "titles": [
+          "GID",
+          "Generic Identifier"
+        ],
+        "dc:description": "An identifier for the operation on a tree.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "on_street",
+        "order":2,
+        "titles": "On Street",
+        "dc:description": "The street that the tree is on.",
+        "datatype": "string"
+      },
+      {
+        "name": "trim_cycle",
+        "order":4,
+        "titles": "Trim Cycle",
+        "dc:description": "The operation performed on the tree.",
+        "datatype": "string"
+      },
+      {
+        "name": "inventory_date",
+        "order":5,
+        "titles": "Inventory Date",
+        "dc:description": "The date of the operation that was performed.",
+        "datatype": "date"
+      },
+      {
+        "name": "species",
+        "order":3,
+        "titles": "Species",
+        "dc:description": "The species of the tree.",
+        "datatype": "string"
+      }
+    ],
+    "primaryKey": "GID"
+  },
+  "properties": {
+    "parquetLocation": "/tmp/xyz",
+    "parquetPartitons" : [{
+      "name" : "BUCKET_DT",
+      "origin" : "inventory_date",
+      "order" : 1
+    }]
+  }
+}
